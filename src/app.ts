@@ -81,8 +81,8 @@ const generateAndSendBirthdayMessages = async () => {
 
 const startApp = () => {
   const rule = new schedule.RecurrenceRule();
-  rule.hour = 9;
-  rule.minute = 45;
+  rule.hour = 8;
+  rule.minute = 30;
   rule.tz = "Europe/Amsterdam";
 
   schedule.scheduleJob(rule, generateAndSendBirthdayMessages);
