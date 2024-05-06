@@ -71,8 +71,10 @@ const generateAndSendBirthdayMessages = async () => {
     const filteredBirthdays = birthdays.filter(
       (b) => b.sendAutomaticMessage && b.phoneNumber && b.nameSavedInPhone
     );
-    const messages = await generateMessages(filteredBirthdays);
-    await sendWhatsappMessages(messages);
+    if (filteredBirthdays.length) {
+      const messages = await generateMessages(filteredBirthdays);
+      await sendWhatsappMessages(messages);
+    }
   } catch (error: any) {
     console.log(`An error occured: ${JSON.stringify(error)}`);
     return [];
